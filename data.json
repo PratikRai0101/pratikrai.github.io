@@ -1,0 +1,18 @@
+{
+  "identity": "Pratik Rai, 21-year-old Engineer and Researcher.",
+  "education": "B.Tech in CSE (IoT Specialization) at YCCE Nagpur, Expected June 2027.",
+  "roles": [
+    "Chairperson @ Codeware Coding Club (Sept 2025 – Present)",
+    "Vice Chairperson @ IEEE Computer Society (July 2025 – Present), leading 300+ members"
+  ],
+  "experience": "Junior Software Developer @ DIMO (Dubai/Remote, Apr–Oct 2025). Worked on gas-optimized Solidity contracts (reducing fees by 65% via zkSync) and React dashboards for 1000+ users.",
+  "projects": [
+    "Enduride: IoT+Blockchain telematics (Rs. 1139 dongle) with <5s crash alerts.",
+    "Evo2 Variant Analysis: Genomic platform using Google’s Evo 2 model trained on 9.3T nucleotides."
+  ],
+  "skills": ["Rust", "Solidity", "C/C++", "Python", "Arch Linux (Hyprland)", "React Native"],
+  "achievements": [
+    "5x Hackathon Winner (including SIH 2025 Finalist and BNB Hack Kerala)",
+    "National Debate Champion"
+  ]
+}
