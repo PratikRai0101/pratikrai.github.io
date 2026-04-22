@@ -29,10 +29,6 @@ body {
   align-items: center;
   margin-left: 16px;
 }
-.vector-logo svg {
-  width: 34px;
-  height: 34px;
-}
 .vector-searchbar {
   flex: 1 1 auto;
   display: flex;
@@ -104,11 +100,15 @@ body {
   color: #0645ad;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
+  top: 1px;
+  z-index: 1;
 }
 .tab.selected {
-  background: #f8f9fa;
-  border-bottom: 1px solid #f8f9fa;
+  background: #fff;
+  border-bottom: 1px solid #fff;
   color: #222;
+  z-index: 2;
 }
 .tab-controls {
   margin-left: auto;
@@ -124,7 +124,13 @@ body {
   margin-top: 12px;
   margin-left: 0px;
 }
-
+#tagline {
+  font-size: 0.95em;
+  margin:-1px 0 13px 1px;
+  color:#54595d;
+  font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
+  font-weight: 400;
+}
 h2 {
   font-size: 1.13em;
   font-weight: bold;
@@ -147,7 +153,7 @@ h2 {
   border: 1px solid #a2a9b1;
   border-radius: 3.5px;
   margin: 0 0 1.5em 2.1em;
-  padding: 10px 14px 14px 18px;
+  padding: 0;
   font-size: 0.97em;
 }
 #infobox-header {
@@ -156,9 +162,27 @@ h2 {
   text-align: center;
   font-weight: bold;
   font-size: 1.15em;
-  margin: -10px -14px 12px -18px;
+  margin: 0 0 10px 0;
   border-bottom: 1px solid #b4d5f7;
   border-radius: 3.5px 3.5px 0 0;
+}
+.infobox-row {
+  display: flex;
+}
+.infobox-label {
+  background: #f8f9fa;
+  color: #444;
+  width: 120px;
+  font-weight: bold;
+  padding: 6px 9px 6px 8px;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.infobox-value {
+  background: #fff;
+  flex: 1;
+  padding: 6px 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Wiki-style blue links */
