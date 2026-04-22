@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratik Rai - Wikipedia Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="main-title">Pratik Rai</h1>
+  <div id="infobox"><!-- Filled by JS --></div>
+  <div id="toc"><!-- ToC Filled by JS --></div>
+  <div id="main-content"><!-- Sections rendered here --></div>
+  <script>
+    fetch('data.json')
+      .then(r => r.json())
+      .then(data => {
+        // Infobox
+        const infobox = document.getElementById('infobox');
+        infobox.innerHTML = `
+          <b>Pratik Rai</b><br>
+          <span>21-year-old Engineer, Researcher</span><br><hr>
+          <b>B.Tech (IoT, YCCE Nagpur)</b><br>
+          <span>Exp. June 2027</span><br><hr>
+          <b>Leadership</b> <ul style="margin:3px 0 5px 17px;">
+            <li>Chairperson @ Codeware Coding Club (2025-)</li>
+            <li>Vice Chairperson @ IEEE CS (2025-) ~300+ members</li>
+          </ul>
+          <b>Links</b> <ul style="margin:3px 0 0 17px;">
+            <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
+            <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
+          </ul>
+        `;
+        // Table of Contents
+        const toc = document.getElementById('toc');
+        const sections = [
+          { id: 'identity', title: 'Identity' },
+          { id: 'education', title: 'Education' },
+          { id: 'roles', title: 'Roles' },
+          { id: 'experience', title: 'Experience' },
+          { id: 'projects', title: 'Projects' },
+          { id: 'skills', title: 'Skills' },
+          { id: 'achievements', title: 'Achievements' }
+        ];
+        toc.innerHTML = '<div class="toctitle">Contents</div>' +
+          '<ul style="list-style-type:decimal;">' +
+          sections.map(sec => `<li><a href="#${sec.id}">${sec.title}</a></li>`).join('') +
+          '</ul>';
+        // Main content
+        const content = document.getElementById('main-content');
+        let html = '';
+        sections.forEach(sec => {
+          html += `<h2 id="${sec.id}">${sec.title}</h2>`;
+          if (Array.isArray(data[sec.id])) {
+            html += '<ul>' + data[sec.id].map(x => `<li>${x}</li>`).join('') + '</ul>';
+          } else if (typeof data[sec.id] === 'object') {
+            html += '<ul>' + Object.values(data[sec.id]).map(x => `<li>${x}</li>`).join('') + '</ul>';
+          } else {
+            html += `<p>${data[sec.id]}</p>`;
+            // Special rendering for highlights
+            if (sec.id === 'achievements') {
+              const highs = data[sec.id].filter(a => a.includes('5x Hackathon') || a.includes('SIH'));
+              if (highs.length)
+                html += `<ul style='font-weight:bold;color:#2a4b8d;'>${highs.map(h => `<li>${h}</li>`).join('')}</ul>`;
+            }
+            if (sec.id === 'projects') {
+              if (Array.isArray(data[sec.id])) {
+                html += '<ul>' + data[sec.id].map(x => {
+                  if (x.includes('Enduride'))
+                    return `<li>${x} <span style="color:#33691e;">(&lt;5s crash alert)</span></li>`;
+                  if (x.includes('Evo2'))
+                    return `<li>${x} <span style="color:#0d47a1;">(9.3T nt training)</span></li>`;
+                  return `<li>${x}</li>`;
+                }).join('') + '</ul>';
+              }
+            }
+          }
+        });
+        content.innerHTML = html;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+body {
+  font-family: 'Segoe UI', 'Liberation Sans', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Linux Libertine', Georgia, Times, serif;
+  font-size: 2.3em;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 3px;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #a2a9b1;
+  margin: 16px 0;
+}
+
+#infobox {
+  float: right;
+  width: 320px;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  border-radius: 3.5px;
+  margin: 0 0 1.5em 2.1em;
+  padding: 10px 16px;
+  font-size: 0.99em;
+}
+
+#toc {
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  padding: 10px 22px;
+  margin-bottom: 1.6em;
+  width: 370px;
+  line-height: 1.7em;
+}
+
+#toc > .toctitle {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0.4em;
+}
+
+@media (max-width: 900px) {
+  #infobox {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+  #toc {
+    width: auto;
+  }
+}
