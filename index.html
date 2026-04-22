@@ -2,169 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pratik Rai - Wikipedia Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="page-base">
-  <div id="utility-header">
-    <div class="left"></div>
-    <div class="center">Pratik Rai Portfolio Wiki</div>
-    <div class="right">
-      <input id="utility-search" type="text" placeholder="Search..." />
-      <a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="font-size:0.97em;margin-left:14px;">GitHub</a>
-    </div>
-  </div>
-  <div id="tabs-row">
-    <div class="tablist">
-      <span class="tab active">Article</span>
-      <span class="tab">Talk</span>
-    </div>
-    <div class="tab-controls">
-      <span class="tab active">Read</span>
-      <span class="tab"><a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="text-decoration:none;">View source</a></span>
-      <span class="tab">View history</span>
-    </div>
-  </div>
-  <div id="main-area">
-    <nav id="sidebar">
-      <div class="sidebar-section" id="sidebar-toc">
-        <h3>Contents</h3>
-        <div id="toc"></div>
+  <!-- Header -->
+  <header id="mw-head">
+    <div class="mw-header-row">
+      <button class="mw-hamburger" aria-label="Open menu">
+        <!-- Hamburger Icon SVG -->
+        <svg width="24" height="24" fill="none"><rect y="5" width="24" height="2" rx="1" fill="#222"/><rect y="11" width="24" height="2" rx="1" fill="#222"/><rect y="17" width="24" height="2" rx="1" fill="#222"/></svg>
+      </button>
+      <div class="mw-logo-tagline">
+        <img src="wiki-globe.svg" class="mw-globe" alt="Wikipedia globe" />
+        <div>
+          <div class="mw-wikipedia">Wikipedia</div>
+          <div class="mw-tagline">The Free Encyclopedia</div>
+        </div>
       </div>
-      <div class="sidebar-section">
-        <h3>Languages</h3>
-        <ul style="font-size:.99em;">
-          <li>EN (en)</li>
+      <form class="mw-search">
+        <input placeholder="Search about Hussain" />
+        <button type="submit">
+          <svg viewBox="0 0 24 24" width="20"><circle cx="11" cy="11" r="7" stroke="#222" stroke-width="2" fill="none"/><line x1="17" y1="17" x2="21" y2="21" stroke="#222" stroke-width="2"/></svg>
+        </button>
+      </form>
+      <nav class="mw-global-links">
+        <a href="#">Appearance</a>
+        <a href="#">Donate</a>
+        <a href="#">Create account</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Main Grid -->
+  <div class="mw-container">
+    <!-- Sidebar -->
+    <aside class="mw-sidebar">
+      <div class="mw-toc">
+        <div class="mw-toc-header">Contents <a href="#" class="mw-toc-hide">hide</a></div>
+        <ol>
+          <li><a href="#top">(Top)</a></li>
+          <li><a href="#identity">1 Identity</a></li>
+          <li><a href="#education">2 Education</a></li>
+          <li><a href="#roles">3 Roles</a></li>
+          <li><a href="#experience">4 Experience</a></li>
+          <li><a href="#projects">5 Projects</a></li>
+          <li><a href="#skills">6 Skills</a></li>
+          <li><a href="#achievements">7 Achievements</a></li>
+          <li><a href="#references">8 References</a></li>
+          <li><a href="#external-links">9 External links</a></li>
+        </ol>
+      </div>
+    </aside>
+
+    <!-- Main Article Content -->
+    <main class="mw-article">
+      <h1>Pratik Rai</h1>
+      <div class="mw-article-subtitle">From Wikipedia, the free encyclopedia</div>
+
+      <!-- Tab bar -->
+      <nav class="mw-tabs">
+        <a class="mw-tab" href="#">Article</a>
+        <a class="mw-tab" href="#">Talk</a>
+        <a class="mw-tab mw-tab-active" href="#">Read</a>
+        <a class="mw-tab" href="#">View source</a>
+        <a class="mw-tab" href="#">View history</a>
+        <a class="mw-tab" href="#">Tools</a>
+      </nav>
+
+      <!-- Infobox (floated right) -->
+      <aside class="mw-infobox">
+        <table>
+          <tr>
+            <th colspan="2" class="infobox-header">Pratik Rai</th>
+          </tr>
+          <tr>
+            <td colspan="2" class="infobox-subtitle">Software Engineer</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="infobox-image">
+              <img src="pratik.svg" alt="Pratik Rai" width="180">
+              <div class="infobox-caption">Pratik Rai, 2026</div>
+            </td>
+          </tr>
+          <tr>
+            <th>Education</th>
+            <td>B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></td>
+          </tr>
+          <tr>
+            <th>Leadership</th>
+            <td>
+              <ul style='margin:5px 0 5px 18px;padding-left:0;'>
+                <li>Chairperson @ Codeware Coding Club (2025–)</li>
+                <li>Vice Chairperson @ IEEE CS (2025–), 300+ members, 750+ events</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Links</th>
+            <td>
+              <ul style="margin:3px 0 3px 0;padding-left:0;">
+                <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
+                <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="infobox-section">
+            <th colspan="2">Skills</th>
+          </tr>
+          <tr>
+            <th>Programming</th>
+            <td>JavaScript, Python, Java, C, React, Next.js</td>
+          </tr>
+          <tr>
+            <th>Databases</th>
+            <td>Supabase, MongoDB, PostgreSQL, Prisma</td>
+          </tr>
+        </table>
+      </aside>
+
+      <!-- Main content sections -->
+      <section id="identity">
+        <h2>Identity</h2>
+        <p>21-year-old Engineer, Researcher</p>
+      </section>
+      <section id="education">
+        <h2>Education</h2>
+        <p><b>BS Software Engineering</b>, COMSATS University Islamabad, Lahore (2022–2026) — CGPA: 3.45</p>
+        <p><b>A Levels</b>, Private (2020–2021) — A*, A, B</p>
+      </section>
+      <section id="roles">
+        <h2>Roles</h2>
+        <p>Various technical and leadership roles in student organizations and hackathons.</p>
+      </section>
+      <section id="experience">
+        <h2>Experience</h2>
+        <p><b>DIMO Internship</b> — Gas-optimized Solidity (zkSync) for 1,000+ users; 65% fee reduction.<sup><a href="#ref1" class="wiki-blue" style="text-decoration:none;font-size:0.92em;">[1]</a></sup></p>
+        <p><b>Enduride</b> — Low-Cost IoT Telematics (Rs. 1,139, <5s crash alert).<sup><a href="#ref2" class="wiki-blue" style="text-decoration:none;font-size:0.92em;">[2]</a></sup></p>
+        <p><b>Evo2 Variant Analysis</b> — Genomic AI platform, 9.3T nucleotides, 1,000+ analyses, 100+ NFT mints.<sup><a href="#ref3" class="wiki-blue" style="text-decoration:none;fontsize:0.92em;">[3]</a></sup></p>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <p>Various projects including AI-based lipreader, gesture presentation tool, and more.</p>
+      </section>
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li><a href="https://www.rust-lang.org/" class="wiki-blue" target="_blank">Rust</a></li>
+          <li><a href="https://soliditylang.org/" class="wiki-blue" target="_blank">Solidity</a></li>
+          <li><a href="https://cplusplus.com/" class="wiki-blue" target="_blank">C/C++</a></li>
+          <li><a href="https://python.org/" class="wiki-blue" target="_blank">Python</a></li>
+          <li><a href="https://wiki.archlinux.org/" class="wiki-blue" target="_blank">Arch Linux (Hyprland)</a></li>
+          <li><a href="https://reactnative.dev/" class="wiki-blue" target="_blank">React Native</a></li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Java</li>
+          <li>C</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Supabase</li>
+          <li>MongoDB</li>
+          <li>PostgreSQL</li>
+          <li>Prisma</li>
         </ul>
-      </div>
-      <div class="sidebar-section" id="sidebar-logo">
-        <h3></h3>
-        <div class="wiki-globe"></div>
-        <div class="wiki-text">Wikipedia: The Free Encyclopedia</div>
-      </div>
-    </nav>
-    <main id="content">
-      <h1 id="main-title">Pratik Rai</h1>
-      <div id="tagline">From Wikipedia, the free encyclopedia</div>
-      <div id="infobox"></div>
-      <div id="main-content"></div>
-      <section id="references"><h2>References</h2><ol id="ref-list"></ol></section>
+      </section>
+      <section id="achievements">
+        <h2>Achievements</h2>
+        <p>Recognition in hackathons, open-source contributions, and academic excellence.</p>
+      </section>
+      <section id="references">
+        <h2>References</h2>
+        <ol>
+          <li id="ref1"><cite>Rai, P. "DIMO: Gas-optimized Solidity (zkSync) for 1,000+ users; 65% fee reduction." DIMO Internship (2025).</cite> <a href="https://www.linkedin.com/in/pratikrai0101/" class="wiki-blue" target="_blank">[Link]</a></li>
+          <li id="ref2"><cite>Rai, P. "Enduride: Low-Cost IoT Telematics (Rs. 1,139, <5s crash alert)." Enduraverse Hackathon (2025).</cite> <a href="https://github.com/PratikRai0101/enduride" class="wiki-blue" target="_blank">[Link]</a></li>
+          <li id="ref3"><cite>Rai, P. "Evo2 Variant Analysis: Genomic AI platform, 9.3T nucleotides, 1,000+ analyses, 100+ NFT mints." Google Evo2 (2025).</cite> <a href="https://github.com/PratikRai0101/evo2-variant-analysis" class="wiki-blue" target="_blank">[Link]</a></li>
+        </ol>
+      </section>
+      <section id="external-links">
+        <h2>External links</h2>
+        <ul>
+          <li><a href="https://github.com/PratikRai0101" class="wiki-blue" target="_blank">GitHub Profile</a></li>
+          <li><a href="https://linkedin.com/in/pratikrai0101" class="wiki-blue" target="_blank">LinkedIn Profile</a></li>
+          <li><a href="https://pratikrai.dev" class="wiki-blue" target="_blank">Personal Website</a></li>
+        </ul>
+      </section>
     </main>
   </div>
-</div>
-<script>
-// --- Sidebar TOC Injection ---
-const sections = [
-  { id: 'identity', title: 'Identity' },
-  { id: 'education', title: 'Education' },
-  { id: 'roles', title: 'Roles' },
-  { id: 'experience', title: 'Experience' },
-  { id: 'projects', title: 'Projects' },
-  { id: 'skills', title: 'Skills' },
-  { id: 'achievements', title: 'Achievements' }
-];
-function renderTOC() {
-  const toc = document.getElementById('toc');
-  toc.innerHTML = '<ul style="padding-inline-start: 20px;margin:0;">' +
-    sections.map(sec => `<li><a href="#${sec.id}">${sec.title}</a></li>`).join('') + '</ul>';
-  Array.from(document.querySelectorAll('#toc a')).forEach(a => {
-    a.addEventListener('click', function(e) {
-      const hash = a.getAttribute('href');
-      if (hash && hash.startsWith('#')) {
-        e.preventDefault();
-        document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-}
-renderTOC();
-// --- Utility search bar: scroll to text ---
-document.getElementById('utility-search').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') window.find(this.value, false, false, true, false, false, false);
-});
-// --- Infobox, Data, Sections ---
-const wikiLinks = {
-  Rust: 'https://www.rust-lang.org/',
-  Solidity: 'https://soliditylang.org/',
-  'C/C++': 'https://cplusplus.com/',
-  Python: 'https://python.org/',
-  'Arch Linux (Hyprland)': 'https://wiki.archlinux.org/',
-  'React Native': 'https://reactnative.dev/'
-};
-const references = [
-  {
-    anchorText: 'Enduride',
-    cite: 'Rai, P. "Enduride: Low-Cost IoT Telematics (Rs. 1,139, <5s crash alert)." Enduraverse Hackathon (2025).',
-    url: 'https://github.com/PratikRai0101/enduride'
-  },
-  {
-    anchorText: 'Evo2 Variant Analysis',
-    cite: 'Rai, P. "Evo2 Variant Analysis: Genomic AI platform, 9.3T nucleotides, 1,000+ analyses, 100+ NFT mints." Google Evo2 (2025).',
-    url: 'https://github.com/PratikRai0101/evo2-variant-analysis'
-  },
-  {
-    anchorText: 'DIMO',
-    cite: 'Rai, P. "DIMO: Gas-optimized Solidity (zkSync) for 1,000+ users; 65% fee reduction." DIMO Internship (2025).',
-    url: 'https://www.linkedin.com/in/pratikrai0101/'
-  }
-];
-function renderWikiLink(text) {
-  if (wikiLinks[text])
-    return `<a href="${wikiLinks[text]}" class="wiki-blue" tabindex="-1" target="_blank">${text}</a>`;
-  return text;
-}
-fetch('data.json').then(r => r.json()).then(data => {
-  // Infobox render with image row
-  const profileImage = data.profile_image || 'pratik.svg';
-  document.getElementById('infobox').innerHTML = `
-    <div id="infobox-header">Pratik Rai</div>
-    <div class="infobox-image"><img src="${profileImage}" alt="Pratik Rai"></div>
-    <div style="font-weight:bold;padding:6px 12px 2px 12px">21-year-old Engineer, Researcher</div>
-    <div class="infobox-row"><div class="infobox-label">Education</div><div class="infobox-value">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></div></div>
-    <div class="infobox-row"><div class="infobox-label">Leadership</div><div class="infobox-value"><ul style='margin:5px 0 5px 18px;padding-left:0;'>
-      <li>Chairperson @ Codeware Coding Club (2025–)</li>
-      <li>Vice Chairperson @ IEEE CS (2025–), 300+ members, 750+ events</li>
-      </ul></div></div>
-    <div class="infobox-row"><div class="infobox-label">Links</div><div class="infobox-value"><ul style="margin:3px 0 3px 0;padding-left:0;">
-      <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
-      <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
-      </ul></div></div>
-  `;
-  // Main content sections
-  let html = '';
-  const citationMap = {
-    'Enduride': 1, 'Evo2 Variant Analysis': 2, 'DIMO': 3
-  };
-  sections.forEach(sec => {
-    html += `<h2 id="${sec.id}">${sec.title}</h2><hr class="section-divider">`;
-    if (Array.isArray(data[sec.id])) {
-      html += '<ul>' + data[sec.id].map(x => {
-        let found = '';
-        Object.entries(citationMap).forEach(([k, idx]) => {
-          if (x.includes(k))
-            found = `<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`;
-        });
-        if(sec.id === 'skills' && wikiLinks[x]) return `<li>${renderWikiLink(x)}</li>`;
-        return `<li>${x}${found}</li>`;
-      }).join('') + '</ul>';
-    } else if (typeof data[sec.id]==='object') {
-      html += '<ul>' + Object.values(data[sec.id]).map(x => `<li>${x}</li>`).join('') + '</ul>';
-    } else {
-      let txt = data[sec.id];
-      Object.entries(citationMap).forEach(([k, idx]) => {
-        if (typeof txt==='string' && txt.includes(k))
-          txt = txt.replace(k, `${k}<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`);
-      });
-      html += `<p>${txt}</p>`;
+
+  <!-- Placeholder for globe image if not present; you may replace with actual SVG -->
+  <script>
+    // If wiki-globe.svg not found, fallback to inline SVG or text
+    const globeImg = document.querySelector('.mw-globe');
+    if (!globeImg.complete || globeImg.naturalWidth === 0) {
+      globeImg.outerHTML = `
+        <svg class="mw-globe" width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#555"/>
+        </svg>`;
     }
-  });
-  document.getElementById('main-content').innerHTML = html;
-  // References
-  document.getElementById('ref-list').innerHTML = references.map((ref, i) => `<li id="ref${i+1}"><cite>${ref.cite}</cite> <a href="${ref.url}" class="wiki-blue" target="_blank">[Link]</a></li>`).join('');
-});
-</script>
+  </script>
 </body>
 </html>
