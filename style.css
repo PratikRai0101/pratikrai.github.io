@@ -22,6 +22,30 @@ body {
   padding: 0 14px;
   font-size: 0.99em;
   color: #222;
+  justify-content: space-between;
+}
+#utility-header .left {
+  /* empty for logo? Actually logo is in sidebar */
+}
+#utility-header .center {
+  flex: 1;
+  text-align: center;
+}
+#utility-header .right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#utility-header input[type="text"] {
+  width: 280px;
+  padding: 6px 12px;
+  border: 1px solid #a2a9b1;
+  border-radius: 3px;
+  font-size: 0.99em;
+}
+#utility-header a {
+  color: #0645ad;
+  text-decoration: underline;
 }
 #tabs-row {
   grid-row: 2 / 3;
@@ -102,7 +126,7 @@ body {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* Sidebar Globe Placeholder */
+/* Sidebar Logo */
 #sidebar-logo {
   height: 84px;
   display: flex;
@@ -110,6 +134,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: 22px;
 }
 #sidebar-logo .wiki-globe {
   width: 40px;

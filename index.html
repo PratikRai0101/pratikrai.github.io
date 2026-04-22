@@ -9,15 +9,11 @@
 <body>
 <div id="page-base">
   <div id="utility-header">
-    <div id="sidebar-logo">
-      <!-- Wikipedia globe placeholder -->
-      <div class="wiki-globe"></div>
-      <div class="wiki-text">Wikipedia: The Free Encyclopedia</div>
-    </div>
-    <div style="margin-left:18px;">Pratik Rai Portfolio Wiki</div>
-    <div style="margin-left:auto;display:flex;align-items:center;gap:21px;">
-      <input id="utility-search" type="text" placeholder="Search..." style="padding:6px 19px;font-size:1em;border-radius:3px;border:1px solid #a2a9b1;" />
-      <a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="font-size:0.97em;">GitHub</a>
+    <div class="left"></div>
+    <div class="center">Pratik Rai Portfolio Wiki</div>
+    <div class="right">
+      <input id="utility-search" type="text" placeholder="Search..." />
+      <a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="font-size:0.97em;margin-left:14px;">GitHub</a>
     </div>
   </div>
   <div id="tabs-row">
@@ -42,6 +38,11 @@
         <ul style="font-size:.99em;">
           <li>EN (en)</li>
         </ul>
+      </div>
+      <div class="sidebar-section" id="sidebar-logo">
+        <h3></h3>
+        <div class="wiki-globe"></div>
+        <div class="wiki-text">Wikipedia: The Free Encyclopedia</div>
       </div>
     </nav>
     <main id="content">
@@ -116,7 +117,7 @@ function renderWikiLink(text) {
 }
 fetch('data.json').then(r => r.json()).then(data => {
   // Infobox render with image row
-  const profileImage = data.profile_image || 'https://via.placeholder.com/300x400?text=Profile+Picture';
+  const profileImage = data.profile_image || 'pratik.svg';
   document.getElementById('infobox').innerHTML = `
     <div id="infobox-header">Pratik Rai</div>
     <div class="infobox-image"><img src="${profileImage}" alt="Pratik Rai"></div>
