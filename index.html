@@ -7,79 +7,64 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="vector-header">
-  <div class="vector-logo">
-    <!-- PR globe SVG -->
-    <svg viewBox="0 0 32 32" width="34" height="34"><circle cx="16" cy="16" r="15" fill="#f7f7f7" stroke="#8a8a8a" stroke-width="2"/><text x="8" y="21" font-size="13" font-weight="bold" font-family="Georgia,serif" fill="#38499c">PR</text></svg>
+<div id="wiki-grid">
+  <div id="utility-header">
+    <div id="sidebar-logo">
+      <!-- Placeholder for 'PR' globe SVG logo -->
+      <svg viewBox="0 0 54 54" width="64" height="64" style="border-radius:50%;background:#e1e5ea"><circle cx="27" cy="27" r="23" fill="#e9eaed" stroke="#858ca3" stroke-width="2"/><text x="13" y="34" font-size="18" font-weight="bold" font-family="Georgia,serif" fill="#38499c">PR</text></svg>
+    </div>
+    <div style="margin-left:18px;">Pratik Rai Portfolio Wiki</div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:21px;">
+      <input id="utility-search" type="text" placeholder="Search..." style="padding:6px 19px;font-size:1em;border-radius:3px;border:1px solid #a2a9b1;" />
+      <a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="font-size:0.97em;">GitHub</a>
+    </div>
   </div>
-  <div class="vector-searchbar">
-    <input type="text" id="searchInput" placeholder="Search Pratik's Wiki..." />
-  </div>
-</div>
-<div id="wiki-wrap">
-  <div id="wiki-main">
-    <nav id="sidebar">
-      <div class="sidebar-section" id="sidebar-contents">
-        <h3>Contents <button id="toc-toggle" style="float:right;font-size:.9em;margin-right:5px;">hide</button></h3>
-        <div id="toc"></div>
+  <nav id="sidebar">
+    <div class="sidebar-section" id="sidebar-toc">
+      <h3>Contents</h3>
+      <div id="toc"></div>
+    </div>
+    <div class="sidebar-section">
+      <h3>Languages</h3>
+      <ul style="font-size:.99em;">
+        <li>EN (en)</li>
+      </ul>
+    </div>
+  </nav>
+  <main id="main-content-area">
+    <div class="tab-row">
+      <div class="tablist">
+        <span class="tab active">Article</span>
+        <span class="tab">Talk</span>
       </div>
-      <div class="sidebar-section" id="sidebar-tools">
-        <h3>Tools</h3>
-        <ul>
-          <li><a href="https://github.com/PratikRai0101" target="_blank" tabindex="-1">GitHub</a></li>
-          <li><a href="https://pratikrai.dev" target="_blank" tabindex="-1">Website</a></li>
-        </ul>
+      <div class="tab-controls">
+        <span class="tab active">Read</span>
+        <span class="tab"><a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="text-decoration:none;">View source</a></span>
+        <span class="tab">View history</span>
       </div>
-      <div class="sidebar-section" id="sidebar-langs">
-        <h3>Languages</h3>
-        <ul style="font-size:.96em;">
-          <li>EN (en)</li>
-        </ul>
-      </div>
-    </nav>
-    <main id="main-content-area">
-      <div class="page-tabs">
-        <div class="tablist">
-          <span class="tab selected">Article</span>
-          <span class="tab">Talk</span>
-        </div>
-        <div class="tab-controls">
-          <span class="tab selected">Read</span>
-          <span class="tab"><a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="text-decoration:none;">View source</a></span>
-          <span class="tab">View history</span>
-        </div>
-      </div>
-      <h1 id="main-title">Pratik Rai</h1>
-      <div id="tagline">From Wikipedia, the free encyclopedia</div>
-      <div id="infobox"><!-- Filled by JS --></div>
-      <div id="main-content"><!-- Rendered Sections --></div>
-      <section id="references"><h2>References</h2><ol id="ref-list"></ol></section>
-    </main>
-  </div>
+    </div>
+    <h1 id="main-title">Pratik Rai</h1>
+    <div id="tagline">From Wikipedia, the free encyclopedia</div>
+    <div id="infobox"></div>
+    <div id="main-content"></div>
+    <section id="references"><h2>References</h2><ol id="ref-list"></ol></section>
+  </main>
 </div>
 <script>
-// --- SEARCH -- 
-function wikiFind(q) {
-  if (!q || !q.trim()) return;
-  window.find(q.trim(), false, false, true, false, false, false);
-}
-document.getElementById('searchInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') wikiFind(this.value);
-});
-// TOC toggle
-const tocToggleBtn = document.getElementById('toc-toggle');
-tocToggleBtn.addEventListener('click', function() {
-  const tocDiv = document.getElementById('toc');
-  if (tocDiv.style.display === 'none') {
-    tocDiv.style.display = '';
-    this.textContent = 'hide';
-  } else {
-    tocDiv.style.display = 'none';
-    this.textContent = 'show';
-  }
-});
-// TOC smooth scroll
-function enableTocSmoothScroll() {
+// --- Sidebar TOC Injection ---
+const sections = [
+  { id: 'identity', title: 'Identity' },
+  { id: 'education', title: 'Education' },
+  { id: 'roles', title: 'Roles' },
+  { id: 'experience', title: 'Experience' },
+  { id: 'projects', title: 'Projects' },
+  { id: 'skills', title: 'Skills' },
+  { id: 'achievements', title: 'Achievements' }
+];
+function renderTOC() {
+  const toc = document.getElementById('toc');
+  toc.innerHTML = '<ul style="padding-inline-start: 20px;margin:0;">' +
+    sections.map(sec => `<li><a href="#${sec.id}">${sec.title}</a></li>`).join('') + '</ul>';
   Array.from(document.querySelectorAll('#toc a')).forEach(a => {
     a.addEventListener('click', function(e) {
       const hash = a.getAttribute('href');
@@ -90,7 +75,12 @@ function enableTocSmoothScroll() {
     });
   });
 }
-// --- DATA AND RENDER ---
+renderTOC();
+// --- Utility search bar: scroll to text ---
+document.getElementById('utility-search').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') window.find(this.value, false, false, true, false, false, false);
+});
+// --- Infobox, Data, Sections ---
 const wikiLinks = {
   Rust: 'https://www.rust-lang.org/',
   Solidity: 'https://soliditylang.org/',
@@ -99,7 +89,6 @@ const wikiLinks = {
   'Arch Linux (Hyprland)': 'https://wiki.archlinux.org/',
   'React Native': 'https://reactnative.dev/'
 };
-// Reference mapping [claim] : [citation]
 const references = [
   {
     anchorText: 'Enduride',
@@ -108,7 +97,7 @@ const references = [
   },
   {
     anchorText: 'Evo2 Variant Analysis',
-    cite: 'Rai, P. "Evo2 Variant Analysis: Genomic AI platform trained on 9.3T nucleotides, 1,000+ analyses, 100+ NFT mints." Google Evo2 Competition (2025).',
+    cite: 'Rai, P. "Evo2 Variant Analysis: Genomic AI platform, 9.3T nucleotides, 1,000+ analyses, 100+ NFT mints." Google Evo2 (2025).',
     url: 'https://github.com/PratikRai0101/evo2-variant-analysis'
   },
   {
@@ -122,72 +111,54 @@ function renderWikiLink(text) {
     return `<a href="${wikiLinks[text]}" class="wiki-blue" tabindex="-1" target="_blank">${text}</a>`;
   return text;
 }
-fetch('data.json')
-  .then(r => r.json())
-  .then(data => {
-    // Render Infobox with precision rows
-    const infobox = document.getElementById('infobox');
-    infobox.innerHTML = `
-      <div id="infobox-header">Pratik Rai</div>
-      <div style="font-weight:bold;">21-year-old Engineer, Researcher</div>
-      <div class="infobox-row"><div class="infobox-label">Education</div><div class="infobox-value">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.94em;'>Exp. June 2027</span></div></div>
-      <div class="infobox-row"><div class="infobox-label">Leadership</div><div class="infobox-value"><ul style='margin:5px 0 5px 16px;padding-left:0;'>
+fetch('data.json').then(r => r.json()).then(data => {
+  // Infobox render
+  document.getElementById('infobox').innerHTML = `
+    <div id="infobox-header">Pratik Rai</div>
+    <div style="font-weight:bold;padding:6px 12px 2px 12px">21-year-old Engineer, Researcher</div>
+    <div class=\"infobox-row\"><div class=\"infobox-label\">Education</div><div class=\"infobox-value\">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></div></div>
+    <div class=\"infobox-row\"><div class=\"infobox-label\">Leadership</div><div class=\"infobox-value\"><ul style='margin:5px 0 5px 18px;padding-left:0;'>
       <li>Chairperson @ Codeware Coding Club (2025–)</li>
       <li>Vice Chairperson @ IEEE CS (2025–), 300+ members, 750+ events</li>
       </ul></div></div>
-      <div class="infobox-row"><div class="infobox-label">Links</div><div class="infobox-value"><ul style="margin:3px 0 3px 0;padding-left:0;">
-        <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
-        <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
+    <div class=\"infobox-row\"><div class=\"infobox-label\">Links</div><div class=\"infobox-value\"><ul style="margin:3px 0 3px 0;padding-left:0;">
+      <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
+      <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
       </ul></div></div>
-    `;
-    // Table of Contents
-    const sections = [
-      { id: 'identity', title: 'Identity' },
-      { id: 'education', title: 'Education' },
-      { id: 'roles', title: 'Roles' },
-      { id: 'experience', title: 'Experience' },
-      { id: 'projects', title: 'Projects' },
-      { id: 'skills', title: 'Skills' },
-      { id: 'achievements', title: 'Achievements' }
-    ];
-    const toc = document.getElementById('toc');
-    toc.innerHTML = '<ul style="list-style-type:decimal;padding-left:18px;">' +
-      sections.map(sec => `<li><a href="#${sec.id}">${sec.title}</a></li>`).join('') +
-      '</ul>';
-    enableTocSmoothScroll();
-    // Main content
-    const content = document.getElementById('main-content');
-    let html = '';
-    const citationMap = { 'Enduride': 1, 'Evo2 Variant Analysis': 2, 'DIMO': 3 };
-    sections.forEach(sec => {
-      html += `<h2 id="${sec.id}">${sec.title}</h2><hr class="section-divider">`;
-      if (Array.isArray(data[sec.id])) {
-        html += '<ul>' + data[sec.id].map((x) => {
-          let found = '';
-          Object.entries(citationMap).forEach(([k, idx]) => {
-            if (x.includes(k))
-              found = `<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`;
-          });
-          if(sec.id === 'skills' && wikiLinks[x]) return `<li>${renderWikiLink(x)}</li>`;
-          return `<li>${x}${found}</li>`;
-        }).join('') + '</ul>';
-      } else if (typeof data[sec.id] === 'object') {
-        html += '<ul>' + Object.values(data[sec.id]).map(x => `<li>${x}</li>`).join('') + '</ul>';
-      } else {
-        let txt = data[sec.id];
+  `;
+  // Main content sections
+  let html = '';
+  const citationMap = {
+    'Enduride': 1, 'Evo2 Variant Analysis': 2, 'DIMO': 3
+  };
+  sections.forEach(sec => {
+    html += `<h2 id="${sec.id}">${sec.title}</h2><hr class="section-divider">`;
+    if (Array.isArray(data[sec.id])) {
+      html += '<ul>' + data[sec.id].map(x => {
+        let found = '';
         Object.entries(citationMap).forEach(([k, idx]) => {
-          if (typeof txt === 'string' && txt.includes(k))
-            txt = txt.replace(k, `${k}<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`);
+          if (x.includes(k))
+            found = `<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`;
         });
-        html += `<p>${txt}</p>`;
-      }
-    });
-    content.innerHTML = html;
-    // References
-    const refList = document.getElementById('ref-list');
-    refList.innerHTML = references.map((ref, i) => `<li id="ref${i+1}"><cite>${ref.cite}</cite> <a href="${ref.url}" class="wiki-blue" target="_blank">[Link]</a></li>`).join('');
+        if(sec.id === 'skills' && wikiLinks[x]) return `<li>${renderWikiLink(x)}</li>`;
+        return `<li>${x}${found}</li>`;
+      }).join('') + '</ul>';
+    } else if (typeof data[sec.id]==='object') {
+      html += '<ul>' + Object.values(data[sec.id]).map(x => `<li>${x}</li>`).join('') + '</ul>';
+    } else {
+      let txt = data[sec.id];
+      Object.entries(citationMap).forEach(([k, idx]) => {
+        if (typeof txt==='string' && txt.includes(k))
+          txt = txt.replace(k, `${k}<sup><a href=\"#ref${idx}\" class=\"wiki-blue\" style=\"text-decoration:none;font-size:0.92em;\">[${idx}]</a></sup>`);
+      });
+      html += `<p>${txt}</p>`;
+    }
   });
+  document.getElementById('main-content').innerHTML = html;
+  // References
+  document.getElementById('ref-list').innerHTML = references.map((ref, i) => `<li id="ref${i+1}"><cite>${ref.cite}</cite> <a href="${ref.url}" class="wiki-blue" target="_blank">[Link]</a></li>`).join('');
+});
 </script>
 </body>
 </html>
