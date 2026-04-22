@@ -1,11 +1,11 @@
 body {
   background: #f6f6f6;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-#wiki-grid {
+#page-base {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 40px auto 1fr;
   min-height: 100vh;
   max-width: 1100px;
   margin: 0 auto;
@@ -13,7 +13,6 @@ body {
   box-shadow: 0 0 11px 2px #e7e7e7;
 }
 #utility-header {
-  grid-column: 1 / span 2;
   grid-row: 1 / 2;
   background: #f8f9fa;
   display: flex;
@@ -24,9 +23,50 @@ body {
   font-size: 0.99em;
   color: #222;
 }
-#sidebar {
-  grid-column: 1 / 2;
+#tabs-row {
   grid-row: 2 / 3;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 14px;
+  margin-bottom: -2px;
+  height: 28px;
+  user-select: none;
+  padding: 0 14px;
+}
+#tabs-row .tablist {
+  display: flex;
+  gap: 3.5px;
+}
+#tabs-row .tab {
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  border-bottom: 0;
+  border-radius: 7px 7px 0 0;
+  font-size: 1em;
+  padding: 5px 17px 7px 17px;
+  margin-right: 3px;
+  color: #0645ad;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#tabs-row .tab.active {
+  background: #fff;
+  color: #222;
+  border-bottom: 1px solid #fff !important;
+}
+#tabs-row .tab-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 4.5px;
+}
+#main-area {
+  grid-row: 3 / 4;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  background: #fff;
+}
+#sidebar {
   background: #f6f6f6;
   border-right: 1px solid #a2a9b1;
   padding: 22px 0 15px 0;
@@ -34,15 +74,13 @@ body {
   flex-direction: column;
   align-items: stretch;
 }
-#main-content-area {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+#content {
+  background: #fff;
+  border-left: 1px solid #a2a9b1;
   padding: 15px 42px 50px 32px;
-  background: #ffffff;
   min-height: 100vh;
   position: relative;
 }
-
 /* Main Title & tagline */
 #main-title {
   font-family: 'Linux Libertine', Georgia, "Times New Roman", Times, serif;
@@ -61,46 +99,6 @@ body {
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Tabs Row */
-.tab-row {
-  display: flex;
-  align-items: flex-end;
-  margin-top: 14px;
-  margin-bottom: -2px;
-  height: 28px;
-  user-select: none;
-}
-.tablist {
-  display: flex;
-  gap: 3.5px;
-}
-.tab {
-  background: #f8f9fa;
-  border: 1px solid #a2a9b1;
-  border-bottom: 0;
-  border-radius: 7px 7px 0 0;
-  font-size: 1em;
-  padding: 5px 17px 7px 17px;
-  margin-right: 3px;
-  color: #0645ad;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.tab.active {
-  background: #fff;
-  color: #222;
-  border-bottom: 1px solid #fff !important;
-}
-.tab-controls {
-  margin-left: auto;
-  display: flex;
-  gap: 4.5px;
-}
-
-.wiki-blue { color: #0645ad; text-decoration: underline; cursor: pointer; }
-
 /* Sidebar Globe Placeholder */
 #sidebar-logo {
   height: 84px;
@@ -108,7 +106,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 /* Sidebar TOC */
 #toc {
   padding: 0 0 0 4px;
@@ -125,7 +122,6 @@ body {
   margin-bottom: 8px;
   margin-top: 0;
 }
-
 /* Infobox */
 #infobox {
   float: right;
@@ -165,3 +161,4 @@ body {
   padding: 6px 8px;
   border-bottom: 1px solid #e0e0e0;
 }
+.wiki-blue { color: #0645ad; text-decoration: underline; cursor: pointer; }
