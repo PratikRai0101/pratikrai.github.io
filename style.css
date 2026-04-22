@@ -1,57 +1,171 @@
 body {
-  font-family: 'Segoe UI', 'Liberation Sans', Arial, sans-serif;
-  background: #f8f9fa;
+  background: #f6f6f6;
+  font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
   color: #222;
   margin: 0;
   padding: 0;
 }
+#wiki-wrap {
+  background: #fff;
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 1020px;
+  box-shadow: 0 0 16px 1.5px #ddd;
+}
 
-h1 {
+.vector-header {
+  background: #fff;
+  border-bottom: 1px solid #a2a9b1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+}
+.vector-logo {
+  width: 44px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.vector-logo svg {
+  width: 34px;
+  height: 34px;
+}
+.vector-searchbar {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+.vector-searchbar input {
+  width: 360px;
+  border: 1px solid #a2a9b1;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 4px 17px;
+  outline: none;
+}
+
+#wiki-main {
+  display: flex;
+  flex-direction: row;
+}
+#sidebar {
+  background: #fff;
+  width: 160px;
+  min-height: calc(100vh - 40px);
+  border-right: 1px solid #a2a9b1;
+  padding: 14px 0 23px 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.sidebar-section {
+  margin: 0 10px 22px 14px;
+}
+#sidebar .sidebar-section h3 {
+  font-size: 1em;
+  font-weight: bold;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 2px;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+#main-content-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  max-width: 780px;
+  margin: 0 24px 0 24px;
+}
+
+.page-tabs {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 12px;
+  margin-bottom: -2px;
+  height: 26px;
+}
+.tablist {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 4px;
+}
+.tab {
+  background: #fff;
+  border: 1px solid #a2a9b1;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  font-size: 1em;
+  padding: 5px 16px 4px 16px;
+  margin-right: 2.5px;
+  color: #0645ad;
+  font-weight: bold;
+  cursor: pointer;
+}
+.tab.selected {
+  background: #f8f9fa;
+  border-bottom: 1px solid #f8f9fa;
+  color: #222;
+}
+.tab-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 5.5px;
+}
+
+#main-title {
   font-family: 'Linux Libertine', Georgia, Times, serif;
-  font-size: 2.3em;
+  font-size: 2.27em;
   font-weight: normal;
   margin-bottom: 0;
+  margin-top: 12px;
+  margin-left: 0px;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.13em;
   font-weight: bold;
-  border-bottom: 1px solid #a2a9b1;
-  padding-bottom: 3px;
   margin-top: 2em;
   margin-bottom: 0.8em;
 }
-
-hr {
+.section-divider {
   border: none;
   border-top: 1px solid #a2a9b1;
-  margin: 16px 0;
+  margin: 14px 0 11px 0;
+  width: 100%;
+  background: none;
 }
 
+/* Infobox */
 #infobox {
   float: right;
-  width: 320px;
+  width: 300px;
   background: #f8f9fa;
   border: 1px solid #a2a9b1;
   border-radius: 3.5px;
   margin: 0 0 1.5em 2.1em;
-  padding: 10px 16px;
-  font-size: 0.99em;
+  padding: 10px 14px 14px 18px;
+  font-size: 0.97em;
 }
-
-#toc {
-  border: 1px solid #a2a9b1;
-  background: #f8f9fa;
-  padding: 10px 22px;
-  margin-bottom: 1.6em;
-  width: 370px;
-  line-height: 1.7em;
-}
-
-#toc > .toctitle {
+#infobox-header {
+  background: #cedff2;
+  padding: 7px 0 6px 0;
+  text-align: center;
   font-weight: bold;
-  text-align: left;
-  margin-bottom: 0.4em;
+  font-size: 1.15em;
+  margin: -10px -14px 12px -18px;
+  border-bottom: 1px solid #b4d5f7;
+  border-radius: 3.5px 3.5px 0 0;
+}
+
+/* Wiki-style blue links */
+.wiki-blue {
+  color: #0645ad;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
@@ -60,7 +174,35 @@ hr {
     width: 100%;
     margin-left: 0;
   }
-  #toc {
+  #wiki-main {
+    flex-direction: column;
+  }
+  #sidebar {
+    position: initial;
     width: auto;
+    border-right: none;
+    min-height: inherit;
+  }
+  #main-content-area {
+    margin: 0 4vw;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 768px) {
+  #sidebar {
+    display: none;
+  }
+  .vector-header {
+    height: unset;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .vector-searchbar input {
+    width: 90vw;
+    max-width: 100vw;
+  }
+  #main-content-area {
+    margin: 0 2vw;
   }
 }
