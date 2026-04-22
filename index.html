@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="wiki-grid">
+<div id="page-base">
   <div id="utility-header">
     <div id="sidebar-logo">
-      <!-- Placeholder for 'PR' globe SVG logo -->
+      <!-- PR globe SVG -->
       <svg viewBox="0 0 54 54" width="64" height="64" style="border-radius:50%;background:#e1e5ea"><circle cx="27" cy="27" r="23" fill="#e9eaed" stroke="#858ca3" stroke-width="2"/><text x="13" y="34" font-size="18" font-weight="bold" font-family="Georgia,serif" fill="#38499c">PR</text></svg>
     </div>
     <div style="margin-left:18px;">Pratik Rai Portfolio Wiki</div>
@@ -19,36 +19,38 @@
       <a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="font-size:0.97em;">GitHub</a>
     </div>
   </div>
-  <nav id="sidebar">
-    <div class="sidebar-section" id="sidebar-toc">
-      <h3>Contents</h3>
-      <div id="toc"></div>
+  <div id="tabs-row">
+    <div class="tablist">
+      <span class="tab active">Article</span>
+      <span class="tab">Talk</span>
     </div>
-    <div class="sidebar-section">
-      <h3>Languages</h3>
-      <ul style="font-size:.99em;">
-        <li>EN (en)</li>
-      </ul>
+    <div class="tab-controls">
+      <span class="tab active">Read</span>
+      <span class="tab"><a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="text-decoration:none;">View source</a></span>
+      <span class="tab">View history</span>
     </div>
-  </nav>
-  <main id="main-content-area">
-    <div class="tab-row">
-      <div class="tablist">
-        <span class="tab active">Article</span>
-        <span class="tab">Talk</span>
+  </div>
+  <div id="main-area">
+    <nav id="sidebar">
+      <div class="sidebar-section" id="sidebar-toc">
+        <h3>Contents</h3>
+        <div id="toc"></div>
       </div>
-      <div class="tab-controls">
-        <span class="tab active">Read</span>
-        <span class="tab"><a href="https://github.com/PratikRai0101/pratikrai.github.io" class="wiki-blue" style="text-decoration:none;">View source</a></span>
-        <span class="tab">View history</span>
+      <div class="sidebar-section">
+        <h3>Languages</h3>
+        <ul style="font-size:.99em;">
+          <li>EN (en)</li>
+        </ul>
       </div>
-    </div>
-    <h1 id="main-title">Pratik Rai</h1>
-    <div id="tagline">From Wikipedia, the free encyclopedia</div>
-    <div id="infobox"></div>
-    <div id="main-content"></div>
-    <section id="references"><h2>References</h2><ol id="ref-list"></ol></section>
-  </main>
+    </nav>
+    <main id="content">
+      <h1 id="main-title">Pratik Rai</h1>
+      <div id="tagline">From Wikipedia, the free encyclopedia</div>
+      <div id="infobox"></div>
+      <div id="main-content"></div>
+      <section id="references"><h2>References</h2><ol id="ref-list"></ol></section>
+    </main>
+  </div>
 </div>
 <script>
 // --- Sidebar TOC Injection ---
@@ -116,12 +118,12 @@ fetch('data.json').then(r => r.json()).then(data => {
   document.getElementById('infobox').innerHTML = `
     <div id="infobox-header">Pratik Rai</div>
     <div style="font-weight:bold;padding:6px 12px 2px 12px">21-year-old Engineer, Researcher</div>
-    <div class=\"infobox-row\"><div class=\"infobox-label\">Education</div><div class=\"infobox-value\">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></div></div>
-    <div class=\"infobox-row\"><div class=\"infobox-label\">Leadership</div><div class=\"infobox-value\"><ul style='margin:5px 0 5px 18px;padding-left:0;'>
+    <div class="infobox-row"><div class="infobox-label">Education</div><div class="infobox-value">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></div></div>
+    <div class="infobox-row"><div class="infobox-label">Leadership</div><div class="infobox-value"><ul style='margin:5px 0 5px 18px;padding-left:0;'>
       <li>Chairperson @ Codeware Coding Club (2025–)</li>
       <li>Vice Chairperson @ IEEE CS (2025–), 300+ members, 750+ events</li>
       </ul></div></div>
-    <div class=\"infobox-row\"><div class=\"infobox-label\">Links</div><div class=\"infobox-value\"><ul style="margin:3px 0 3px 0;padding-left:0;">
+    <div class="infobox-row"><div class="infobox-label">Links</div><div class="infobox-value"><ul style="margin:3px 0 3px 0;padding-left:0;">
       <li><a href="https://pratikrai.dev" target="_blank">Website</a></li>
       <li><a href="https://github.com/PratikRai0101" target="_blank">GitHub</a></li>
       <li><a href="https://linkedin.com/in/pratikrai0101" target="_blank">LinkedIn</a></li>
