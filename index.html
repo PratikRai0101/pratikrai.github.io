@@ -10,8 +10,9 @@
 <div id="page-base">
   <div id="utility-header">
     <div id="sidebar-logo">
-      <!-- PR globe SVG -->
-      <svg viewBox="0 0 54 54" width="64" height="64" style="border-radius:50%;background:#e1e5ea"><circle cx="27" cy="27" r="23" fill="#e9eaed" stroke="#858ca3" stroke-width="2"/><text x="13" y="34" font-size="18" font-weight="bold" font-family="Georgia,serif" fill="#38499c">PR</text></svg>
+      <!-- Wikipedia globe placeholder -->
+      <div class="wiki-globe"></div>
+      <div class="wiki-text">Wikipedia: The Free Encyclopedia</div>
     </div>
     <div style="margin-left:18px;">Pratik Rai Portfolio Wiki</div>
     <div style="margin-left:auto;display:flex;align-items:center;gap:21px;">
@@ -114,9 +115,11 @@ function renderWikiLink(text) {
   return text;
 }
 fetch('data.json').then(r => r.json()).then(data => {
-  // Infobox render
+  // Infobox render with image row
+  const profileImage = data.profile_image || 'https://via.placeholder.com/300x400?text=Profile+Picture';
   document.getElementById('infobox').innerHTML = `
     <div id="infobox-header">Pratik Rai</div>
+    <div class="infobox-image"><img src="${profileImage}" alt="Pratik Rai"></div>
     <div style="font-weight:bold;padding:6px 12px 2px 12px">21-year-old Engineer, Researcher</div>
     <div class="infobox-row"><div class="infobox-label">Education</div><div class="infobox-value">B.Tech (IoT, YCCE Nagpur)<br><span style='color:#444;font-size:0.93em;'>Exp. June 2027</span></div></div>
     <div class="infobox-row"><div class="infobox-label">Leadership</div><div class="infobox-value"><ul style='margin:5px 0 5px 18px;padding-left:0;'>
